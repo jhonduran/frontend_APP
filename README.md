@@ -1,4 +1,4 @@
-# Servicity
+# Servicios De Analisis de datos 
 
 **Servicity** es una aplicación móvil que conecta personas que necesitan servicios con quienes pueden ofrecerlos, como plomeros, electricistas, niñeras, entre otros. Inspirado en plataformas como TaskRabbit, Servicity está pensado para el contexto colombiano, con un enfoque en la economía colaborativa local y el acceso fácil desde cualquier región del país.
 
