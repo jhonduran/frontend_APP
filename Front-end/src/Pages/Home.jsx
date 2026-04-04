@@ -14,11 +14,13 @@ import start from '../assets/star.svg'
 export default function Home() {
 
   return (
-    <>
+    <
+
+    >
       <HeaderBar/>
 
       <div className="w-full h-60 px-5 py-15 xl:w-7xl xl:m-auto">
-        <h2 className='text-4xl font-bold text-amber-600'>Necesito ayuda con</h2>
+        <h2 className='text-4xl font-bold text-amber-600'>Analisis de datos</h2>
         <div className='relative'>
           <input type="text" className='border border-gray-300 rounded-full p-2 px-5 mt-4 w-full' placeholder='Prueba "Montar un tv" o "pintar un cuarto"'/>
           <svg className='absolute top-6 right-2 fill-gray-500' xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 48 48">
@@ -31,37 +33,37 @@ export default function Home() {
         <a href="" className='botonCategoria p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-0'>
         <div className="flex flex-col items-center">
           <img src={imgCategoria1} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-          <span className='text-amber-600 font-bold mt-2'>Ensamblaje</span>
+          <span className='text-amber-600 font-bold mt-2'>Ventas</span>
         </div>
         </a>
         <a href="" className='p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-100'>
           <div className="flex flex-col items-center">
             <img src={imgCategoria2} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-            <span className='text-amber-600 font-bold mt-2'>Limpieza</span>
+            <span className='text-amber-600 font-bold mt-2'>marketing</span>
           </div>
         </a>
         <a href="" className='p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-200'>
           <div className="flex flex-col items-center">
             <img src={imgCategoria3} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-            <span className='text-amber-600 font-bold mt-2'>Mudanza</span>
+            <span className='text-amber-600 font-bold mt-2'>Usuarios</span>
           </div>
         </a>
         <a href="" className='p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-300'>
           <div className="flex flex-col items-center">
             <img src={imgCategoria4} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-            <span className='text-amber-600 font-bold mt-2'>Pintura</span>
+            <span className='text-amber-600 font-bold mt-2'>Rendimiento</span>
           </div>
         </a>
         <a href="" className='p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-400'>
           <div className="flex flex-col items-center">
             <img src={imgCategoria5} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-            <span className='text-amber-600 font-bold mt-2'>jardinería</span>
+            <span className='text-amber-600 font-bold mt-2'>Operaciones</span>
           </div>
         </a>
         <a href="" className='p-2 rounded-2xl transition hover:bg-gray-200/50 animate-slide-up-fade animate-delay-500'>
           <div className="flex flex-col items-center">
             <img src={imgCategoria6} className='size-[140px] object-cover rounded-3xl' alt="imagen categoria ensamblaje" />
-            <span className='text-amber-600 font-bold mt-2'>Plomería</span>
+            <span className='text-amber-600 font-bold mt-2'>IA y predicciones</span>
           </div>
         </a>
       </div>
