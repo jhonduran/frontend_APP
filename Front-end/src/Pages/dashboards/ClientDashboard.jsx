@@ -126,7 +126,7 @@ const ClientDashboard = () => {
             <HeaderBar />
             
             <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard del Cliente</h1>
+                <h1 className="text-3xl font-bold text-gray-800 mb-6">Panel de Control - Empresa</h1>
                 
                 {/* User Info Card (Read-only) */}
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-8">
@@ -176,7 +176,7 @@ const ClientDashboard = () => {
                 <div className="bg-white shadow overflow-hidden sm:rounded-lg mb-8">
                     <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
                         <h3 className="text-lg leading-6 font-medium text-gray-900">Acciones Rápidas</h3>
-                        <p className="mt-1 max-w-2xl text-sm text-gray-500">Gestiona tus tareas y servicios</p>
+                        <p className="mt-1 max-w-2xl text-sm text-gray-500">Gestiona tus proyectos y consultorías</p>
                     </div>
                     <div className="px-4 py-5 sm:p-6">
                         <div className="flex flex-wrap gap-4">
@@ -187,7 +187,7 @@ const ClientDashboard = () => {
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4"></path>
                                 </svg>
-                                Crear Nueva Tarea
+                                Publicar Nuevo Proyecto
                             </button>
                             <button
                                 onClick={() => navigate('/my-tasks')}
@@ -196,7 +196,7 @@ const ClientDashboard = () => {
                                 <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                                 </svg>
-                                Ver Mis Tareas
+                                Ver Mis Proyectos
                             </button>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ const ClientDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Total de Tareas</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Total de Proyectos</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {stats.totalTasks}
@@ -235,7 +235,7 @@ const ClientDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Tareas Pendientes</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Proyectos Pendientes</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {stats.pendingTasks}
@@ -256,7 +256,7 @@ const ClientDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Tareas Completadas</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Proyectos Completadas</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {stats.completedTasks}
@@ -277,7 +277,7 @@ const ClientDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Total Gastado</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Inversión en Proyectos</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {formatCurrency(stats.totalSpent)}
@@ -294,7 +294,7 @@ const ClientDashboard = () => {
                     {/* Latest Tasks */}
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Últimas Tareas</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Últimas Proyectos</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {loading ? (
@@ -334,7 +334,7 @@ const ClientDashboard = () => {
                     {/* Pending Bids */}
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Ofertas Pendientes</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Propuestas Recibidas</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {loading ? (
@@ -394,7 +394,7 @@ const ClientDashboard = () => {
                 {pendingTasks.length > 0 && (
                     <div className="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Tareas Pendientes</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Proyectos Pendientes</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {pendingTasks.map((task) => (

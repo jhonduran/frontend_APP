@@ -198,7 +198,7 @@ const TaskerDashboard = () => {
             });
 
             if (response.success) {
-                showToast('Oferta realizada con éxito', 'success');
+                showToast('Propuesta enviada con éxito', 'success');
                 setShowBidModal(false);
                 setSelectedTask(null);
                 setBidData({ bid_amount: '', message: '' });
@@ -235,7 +235,7 @@ const TaskerDashboard = () => {
             <HeaderBar />
             
             <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-                <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard</h1>
+                <h1 className="text-3xl font-bold text-gray-800 mb-6">Panel de Control - Consultor</h1>
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 gap-5 mt-6 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Hourly Rate Card */}
@@ -269,7 +269,7 @@ const TaskerDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Tareas completadas</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Proyectos entregados</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {stats.completedTasks}
@@ -290,7 +290,7 @@ const TaskerDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Tareas pendientes</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Proyectos asignados</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {pendingTasks.length}
@@ -311,7 +311,7 @@ const TaskerDashboard = () => {
                             </div>
                             <div className="ml-5 w-0 flex-1">
                                 <dl>
-                                    <dt className="text-sm font-medium text-gray-500 truncate">Ganancias totales</dt>
+                                    <dt className="text-sm font-medium text-gray-500 truncate">Ingresos totales</dt>
                                     <dd className="flex items-baseline">
                                         <div className="text-2xl font-semibold text-gray-900">
                                             {stats.totalEarnings.toLocaleString('es-CO', { style: 'currency', currency: 'COP' })}
@@ -328,7 +328,7 @@ const TaskerDashboard = () => {
                     {/* Booked Tasks */}
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Tareas reservadas</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Proyectos en curso</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {loading ? (
@@ -394,7 +394,7 @@ const TaskerDashboard = () => {
                     {/* Pending Tasks */}
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Tareas pendientes</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Proyectos asignados</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {loading ? (
@@ -444,7 +444,7 @@ const TaskerDashboard = () => {
                     {/* Offered Tasks */}
                     <div className="bg-white shadow overflow-hidden sm:rounded-lg">
                         <div className="px-4 py-5 sm:px-6 border-b border-gray-200">
-                            <h3 className="text-lg leading-6 font-medium text-gray-900">Tareas publicadas</h3>
+                            <h3 className="text-lg leading-6 font-medium text-gray-900">Oportunidades disponibles</h3>
                         </div>
                         <div className="divide-y divide-gray-200">
                             {loading ? (
@@ -461,21 +461,21 @@ const TaskerDashboard = () => {
                                             <p className="text-sm font-medium text-amber-600 truncate">{task.title}</p>
                                             {(task.user_bid_status === 'accepted') ? (
                                                 <span className="px-2 py-1 text-xs bg-green-100 text-green-800 rounded">
-                                                    Oferta aceptada
+                                                    Propuesta aceptada
                                                 </span>
                                             ) : (task.user_has_bid || false) ? (
                                                 <button
                                                     onClick={() => handleTaskAction(task.id, 'withdraw', task.user_bid_id || null)}
                                                     className="px-2 py-1 text-xs bg-red-600 text-white rounded hover:bg-red-700"
                                                 >
-                                                    Retirar oferta
+                                                    Retirar propuesta
                                                 </button>
                                             ) : (
                                                 <button
                                                     onClick={() => handleTaskAction(task.id, 'bid')}
                                                     className="px-2 py-1 text-xs bg-amber-600 text-white rounded hover:bg-amber-700"
                                                 >
-                                                    Realizar una oferta
+                                                    Enviar propuesta
                                                 </button>
                                             )}
                                         </div>
@@ -507,13 +507,13 @@ const TaskerDashboard = () => {
                     <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
                         <div className="mt-3">
                             <h3 className="text-lg font-medium text-gray-900 mb-4">
-                                Realizar oferta para: {selectedTask.title}
+                                Enviar propuesta para: {selectedTask.title}
                             </h3>
                             
                             <form onSubmit={handleBidSubmit}>
                                 <div className="mb-4">
                                     <label htmlFor="bid_amount" className="block text-sm font-medium text-gray-700 mb-1">
-                                        Monto de la oferta *
+                                        Monto de la propuesta *
                                     </label>
                                     <input
                                         type="number"
@@ -562,7 +562,7 @@ const TaskerDashboard = () => {
                                         className="px-4 py-2 bg-amber-600 text-white rounded-md hover:bg-amber-700 disabled:opacity-50"
                                         disabled={submitting || !bidData.bid_amount}
                                     >
-                                        {submitting ? 'Enviando...' : 'Enviar Oferta'}
+                                        {submitting ? 'Enviando...' : 'Enviar Propuesta'}
                                     </button>
                                 </div>
                             </form>

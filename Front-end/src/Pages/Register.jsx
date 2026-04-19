@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router';
 import { sendRequest } from '../utils/sendRequest'
 import storage from '../Storage/storage';
-import servicityLogo from '../assets/servicity_logo.png';
 import backgroundRegister from '../assets/garden_maintenance.webp';
 import { rootAxios } from '../axios';
 import { ToastContainer, showToast } from '../utils/Toast';
@@ -21,30 +20,29 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if(loading == false){
 
       setLoading(true);
       try {
         console.log('Register attempt:', { name, email, password, passwordConfirmation });
         await csrf();
-        const form = { 
-          name: name, 
-          email: email, 
-          password: password, 
-          password_confirmation: 
-          passwordConfirmation, 
+        const form = {
+          name: name,
+          email: email,
+          password: password,
+          password_confirmation:
+          passwordConfirmation,
           user_type: 'client' };
         const res = await sendRequest({method: 'POST', params: form, url: '/register', token: false});
 
         console.log(res);
 
         if (res.success == true) {
-          // Set authentication session similar to login
           storage.set('authToken', res.data.token);
           storage.set('authUser', res.data.user);
           console.log(res.data.user);
-          
+
           showToast('Registro exitoso', 'success');
           setTimeout(() => {
             go('/client-dashboard');
@@ -71,19 +69,24 @@ const Register = () => {
   };
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-amber-50 to-indigo-100 flex items-center justify-center flex-row lg:items-stretch lg:content-stretch lg:justify-start gap-0'>
+    <div className='min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center flex-row lg:items-stretch lg:content-stretch lg:justify-start gap-0'>
       <div className='flex items-center justify-center p-4 min-w-[400px] w-[50%] lg:justify-end'>
-        <div className='p-8 lg:p-16 w-full max-w-md'> {/* bg-white rounded-lg shadow-xl */}
+        <div className='p-8 lg:p-16 w-full max-w-md'>
           {/* Logo */}
           <div className='flex justify-center mb-8'>
-            <div className='w-24 h-8 rounded-lg flex items-center justify-center'>
-              <img src={servicityLogo} />
+            <div className='flex items-center gap-2'>
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-cyan-500 rounded-lg flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <span className="text-2xl font-bold text-gray-900">DataExpert</span>
             </div>
           </div>
 
           {/* Title */}
           <h1 className='text-2xl font-bold text-gray-900 text-center mb-10'>
-            regístrate ahora
+            Crea tu cuenta empresarial
           </h1>
 
           {/* Form */}
@@ -99,7 +102,7 @@ const Register = () => {
                 type='text'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                 placeholder='Ingresa tu nombre completo'
                 autoComplete='name'
                 required
@@ -109,14 +112,14 @@ const Register = () => {
             {/* Email Field */}
             <div>
               <label htmlFor='email' className='block text-sm font-medium text-gray-700 mb-2'>
-                Correo electrónico
+                Correo electrónico corporativo
               </label>
               <input
                 id='email'
                 type='email'
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                 placeholder='Ingresa tu correo electrónico'
                 autoComplete='mail'
                 required
@@ -133,7 +136,7 @@ const Register = () => {
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                 placeholder='Ingresa tu contraseña de usuario'
                 autoComplete='current-password'
                 required
@@ -150,18 +153,18 @@ const Register = () => {
                 type='password'
                 value={passwordConfirmation}
                 onChange={(e) => setPasswordConfirmation(e.target.value)}
-                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500'
+                className='w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500'
                 placeholder='Vuelve a escribir tu contraseña'
                 autoComplete='none'
                 required
               />
             </div>
 
-            {/* Register Button , shows loading animation if loading state is true*/}
+            {/* Register Button */}
 
             {loading ? (
               <button
-                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 cursor-pointer transition duration-200'
+                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer transition duration-200'
               >
                 <svg aria-hidden="true" role="status" className="inline mr-3 w-4 h-4 text-white animate-spin" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="#E5E7EB"></path>
@@ -171,9 +174,9 @@ const Register = () => {
             ) : (
               <button
                 onClick={handleSubmit}
-                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-amber-600 hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 cursor-pointer transition duration-200'
+                className='w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer transition duration-200'
               >
-                Crear mi cuenta
+                Crear cuenta empresarial
               </button>
             )}
 
@@ -186,7 +189,7 @@ const Register = () => {
                 <div className='w-full border-t border-gray-300' />
               </div>
               <div className='relative flex justify-center text-sm'>
-                <span className='px-2 bg-[#f0f2f5] text-gray-500'>O regístrate con</span>
+                <span className='px-2 bg-gray-50 text-gray-500'>O regístrate con</span>
               </div>
             </div>
           </div>
@@ -211,15 +214,24 @@ const Register = () => {
               className='w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-md shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 cursor-pointer transition duration-200'
             >
               <svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' width='20' height='20' viewBox='0 0 48 48'>
-                <linearGradient id='Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1' x1='9.993' x2='40.615' y1='9.993' y2='40.615' gradientUnits='userSpaceOnUse'><stop offset='0' stopColor='#2aa4f4'></stop><stop offset='1' stopColor='#007ad9'></stop></linearGradient><path fill='url(#Ld6sqrtcxMyckEl6xeDdMa_uLWV5A9vXIPu_gr1)' d='M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z'></path><path fill='#fff' d='M26.707,29.301h5.176l0.813-5.258h-5.989v-2.874c0-2.184,0.714-4.121,2.757-4.121h3.283V12.46 c-0.577-0.078-1.797-0.248-4.102-0.248c-4.814,0-7.636,2.542-7.636,8.334v3.498H16.06v5.258h4.948v14.452 C21.988,43.9,22.981,44,24,44c0.921,0,1.82-0.084,2.707-0.204V29.301z'></path>
+                <path fill="#000" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
+                <path fill='#fff' d='M22.55 30.16c-.29-.58-.58-1.16-.87-1.74-.46.09-.91.09-1.37.09-2.79 0-5-2.05-5-5.26 0-1.05.35-2.09 1.05-2.79-.09-.23-.23-.58-.35-.81-.12.12-.23.12-.35.12-1.51 0-2.67-1.16-2.67-2.67 0-.58.23-1.16.58-1.63-.23-.12-.46-.23-.7-.23-2.32 0-4.19 1.86-4.19 4.19 0 .35.12.7.23 1.05-.23-.12-.46-.12-.58-.12-2.32 0-4.19 1.86-4.19 4.19 0 1.51.81 2.79 2.09 3.49-.12.23-.23.46-.23.81 0 3.26 2.67 5.93 5.93 5.93h.12c-.7.81-1.16 1.86-1.16 2.9 0 3.38 3.84 4.77 8.49 4.77 4.65 0 8.49-1.39 8.49-4.77 0-2.67-1.98-5-4.88-5.7l-1.86-4.42z'></path>
               </svg>
-              <span className='ml-2'>Facebook</span>
+              <span className='ml-2'>GitHub</span>
             </button>
           </div>
+
+          <p className='mt-6 text-center text-sm text-gray-500'>
+            ¿Eres especialista en datos?{' '}
+            <a href='/register-tasker' className='text-blue-600 hover:text-blue-500 font-medium'>
+              Regístrate como consultor
+            </a>
+          </p>
         </div>
       </div>
-      <div className='hidden bg-amber-900 w-[50%] lg:flex'>
-        <img src={backgroundRegister} className='object-cover grayscale opacity-50 w-full h-full' />
+      <div className='hidden bg-blue-900 w-[50%] lg:flex'>
+        <img src={backgroundRegister} className='object-cover opacity-40 w-full h-full grayscale'
+        />
       </div>
 
       <ToastContainer/>
