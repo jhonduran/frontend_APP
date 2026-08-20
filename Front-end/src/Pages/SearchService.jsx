@@ -10,7 +10,7 @@ import usuario4 from '../assets/users/usuario4.jpg'
 const mockConsultants = [
   {
     id: 1,
-    name: 'Carlos Sánchez R.',
+    name: 'john alexander duran.',
     title: 'Data Scientist Senior',
     image: usuario1,
     description: 'Especialista en machine learning y modelos predictivos con 8+ años de experiencia. Experto en Python, TensorFlow y análisis estadístico avanzado.',
