@@ -17,7 +17,7 @@ const mockConsultants = [
     availability: 'Disponible inmediatamente',
     rate: 150000,
     rateType: 'hora',
-    experience: 8,
+    experience: 1,
     rating: 4.9,
     reviews: 47,
     skills: ['Python', 'Machine Learning', 'TensorFlow', 'SQL', 'Estadística'],
