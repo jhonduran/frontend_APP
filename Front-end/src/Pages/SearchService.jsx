@@ -28,7 +28,7 @@ const mockConsultants = [
   {
     id: 2,
     name: 'jeimmy arguello .',
-    title: 'Business Intelligence Analyst',
+    title: 'psicóloga organizacional',
     image: usuario2,
     description: 'Consultora BI con enfoque en visualización de datos y dashboards interactivos. Especialista en PowerBI, Tableau y transformación de datos complejos en insights accionables.',
     availability: 'Disponible desde la próxima semana',
